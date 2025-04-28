@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Kevin's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React + TypeScript + Vite, showcasing my professional skills, project experiences, and personal information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Modern UI Design
+- 📱 Responsive Design for All Devices
+- ⚡ Fast Development with Vite
+- 🔥 TypeScript for Code Quality
+- 🎭 3D Model Display
+- 🌈 Gradient Background and Animations
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 18
+- TypeScript
+- Vite
+- Three.js (3D Models)
+- CSS3 (Animations and Effects)
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+portfolio/
+├── public/          # Static Assets
+├── src/
+│   ├── assets/      # Images and Resources
+│   ├── components/  # React Components
+│   ├── styles/      # CSS Styles
+│   ├── hooks/       # Custom Hooks
+│   └── types/       # TypeScript Type Definitions
+├── package.json
+└── vite.config.ts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Main Components
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- `Home`: Welcome Section
+- `AboutMe`: Personal Introduction
+- `Skills`: Skills Showcase
+- `Projects`: Project Portfolio
+- `Timeline`: Education and Work Experience
+- `Contact`: Contact Information
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Installation & Running
+
+1. Clone the repository
+```bash
+git clone https://github.com/HsuanChi1204/portfolio.git
 ```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Run development server
+```bash
+npm run dev
+```
+
+4. Build for production
+```bash
+npm run build
+```
+
+## Deployment
+
+The project can be deployed on any static website hosting platform, such as:
+- Vercel
+- Netlify
+- GitHub Pages
+
+## Contributing
+
+Feel free to open issues and pull requests! If you find any bugs or have suggestions for improvements, please let me know.
+
+## License
+
+MIT License
