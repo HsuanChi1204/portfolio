@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Welcome.css';
+import profileImage from '../assets/profile.png';
 
 const Welcome: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Welcome: React.FC = () => {
       <div className="welcome-image">
         <div className="image-placeholder">
           <img 
-            src="https://avatars.githubusercontent.com/u/810438?v=4" 
+            src={profileImage} 
             alt="Welcome"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />

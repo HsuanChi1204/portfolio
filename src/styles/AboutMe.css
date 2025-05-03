@@ -1,102 +1,55 @@
-.about-container {
+.about-me-container {
   width: 100%;
-  background: black;
-  padding: 4rem 0;
-}
-
-.about-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0;
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
   gap: 4rem;
-  margin-bottom: 3rem;
 }
 
-.about-text {
-  color: white;
+.text-content {
+  flex: 1;
+  max-width: 600px;
 }
 
-.about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  position: relative;
-  display: inline-block;
-}
-
-.about-text h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  border-radius: 2px;
-}
-
-.about-text p {
+.text-content p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
-}
-
-.quick-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.quick-links a {
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.resume-link {
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  color: white;
-}
-
-.github-link {
-  background: rgba(139, 92, 246, 0.1);
-  color: #8b5cf6;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.resume-link:hover, .github-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .profile-image {
-  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-container {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 16px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
   overflow: hidden;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
 }
 
 .memoji-section {
+  margin-top: 4rem;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .memoji-container {
@@ -104,33 +57,44 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 3px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
 }
 
-.memoji-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .about-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 2rem;
   }
 
-  .quick-links {
-    flex-direction: column;
-    gap: 1rem;
+  .image-container {
+    width: 250px;
+    height: 250px;
   }
 
-  .quick-links a {
-    text-align: center;
-  }
-
-  .memoji-section {
-    justify-content: center;
-    margin-top: 2rem;
+  .memoji-container {
+    width: 150px;
+    height: 150px;
   }
 } 
