@@ -1,7 +1,7 @@
 .skills-container {
   width: 100%;
-  padding: 6rem 0;
-  background: transparent;
+  padding: 4rem 0;
+  background: var(--color-bg-main);
   position: relative;
 }
 
@@ -64,7 +64,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -73,16 +73,15 @@
 }
 
 .skill-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-card);
   border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(132, 112, 155, 0.08);
   padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+  border: none;
 }
 
 .skill-card::before {
@@ -106,19 +105,14 @@
 }
 
 .skill-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.2),
-    0 0 10px rgba(99, 102, 241, 0.2),
-    0 0 20px rgba(99, 102, 241, 0.1);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(93, 125, 179, 0.12);
 }
 
 .skill-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
 }
 
 .skill-icon::after {
@@ -135,17 +129,16 @@
   filter: blur(10px);
 }
 
-.skill-card h3 {
-  color: white;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  position: relative;
+.skill-title {
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.skill-card p {
-  color: rgba(255, 255, 255, 0.8);
+.skill-description {
+  color: var(--color-text-main);
   font-size: 1rem;
-  line-height: 1.6;
+  text-align: center;
 }
 
 @media (max-width: 1024px) {

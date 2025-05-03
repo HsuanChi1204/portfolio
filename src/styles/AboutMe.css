@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding: 6rem 0;
+  background: var(--color-bg-main);
 }
 
 .about-content {
@@ -20,13 +21,14 @@
 .text-content {
   flex: 1;
   max-width: 600px;
+  color: var(--color-text-main);
 }
 
 .text-content p {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-main);
 }
 
 .profile-image {
@@ -41,8 +43,8 @@
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 20px var(--color-primary);
 }
 
 .memoji-section {
@@ -57,8 +59,8 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 0 20px var(--color-accent);
 }
 
 .cta-buttons {
@@ -69,16 +71,16 @@
 
 .cta-button {
   padding: 0.8rem 1.5rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: var(--color-accent);
+  border: 1px solid var(--color-primary);
   border-radius: 8px;
-  color: white;
+  color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-  background: rgba(139, 92, 246, 0.2);
+  background: var(--color-secondary);
   transform: translateY(-2px);
 }
 
