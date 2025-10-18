@@ -2,43 +2,46 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-main);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
-.loading-content {
-  text-align: center;
+.loader {
+  width: fit-content;
+  font-size: 40px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent);
+  --g: conic-gradient(var(--color-accent) 0 0) no-repeat text;
+  background: var(--g) 0, var(--g) 1ch, var(--g) 2ch, var(--g) 3ch, var(--g) 4ch, var(--g) 5ch, var(--g) 6ch;
+  animation: 
+    l18-0 2s linear infinite alternate,
+    l18-1 4s linear infinite;
 }
 
-.loading-text {
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 500;
+.loader:before {
+  content: "Loading";
 }
 
-.progress-bar {
-  width: 300px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
-  margin: 0 auto;
+@keyframes l18-0 {
+  0%     {background-size: 1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   }
+  14.28% {background-size: 1ch 100%,1ch 50% ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   }
+  28.57% {background-size: 1ch 100%,1ch 100%,1ch 50% ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   }
+  42.85% {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 50% ,1ch 0   ,1ch 0   ,1ch 0   }
+  57.14% {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 50% ,1ch 0   ,1ch 0   }
+  71.43% {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 50% ,1ch 0   }
+  85.71% {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 50% }
+  100%   {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%}
 }
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  transition: width 0.2s ease-out;
+@keyframes l18-1 {
+  0%,50%    {background-position-y: 100%}
+  50.01%,to {background-position-y: 0   }
 }
-
-.progress-text {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1rem;
-  margin-top: 1rem;
-} 

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Welcome from './components/Welcome';
-import Skills from './components/Skills';
+import SkillsProjects from './components/SkillsProjects';
 import Timeline from './components/Timeline';
-import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Loading from './components/Loading';
 import './styles/App.css';
@@ -33,11 +32,8 @@ const App: React.FC = () => {
         <section id="education">
           <Timeline />
         </section>
-        <section id="skills">
-          <Skills />
-        </section>
         <section id="portfolio">
-          <Projects />
+          <SkillsProjects />
         </section>
         <section id="contact">
           <Contact />

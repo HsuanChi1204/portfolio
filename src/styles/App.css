@@ -1,12 +1,33 @@
 :root {
-  --color-bg-main: #E1E4EA;
-  --color-bg-section: #B6CAD7;
-  --color-card: #D2C3D5;
-  --color-primary: #84709B;
-  --color-secondary: #464879;
-  --color-accent: #5D7DB3;
-  --color-text-main: #464879;
-  --color-text-light: #84709B;
+  /* 主要色彩調色板 */
+  --color-primary: #1B3C53;      /* 深藍綠色 - 主要文字和重要元素 */
+  --color-secondary: #234C6A;    /* 中等藍綠色 - 次要元素 */
+  --color-accent: #456882;       /* 淺藍綠色 - 強調色 */
+  --color-light: #D2C1B6;        /* 淺米色 - 背景和對比 */
+  
+  /* 背景色彩 */
+  --color-bg-main: #1A252B;      /* 深色背景 - 調亮 */
+  --color-bg-section: #24303A;   /* 區塊背景 - 調亮 */
+  --color-bg-card: rgba(27, 60, 83, 0.15); /* 卡片背景 - 調亮 */
+  
+  /* 文字色彩 */
+  --color-text-main: #E8E2D5;    /* 主要文字 - 調亮 */
+  --color-text-secondary: #5A7A8F; /* 次要文字 - 調亮 */
+  --color-text-light: rgba(232, 226, 213, 0.9); /* 淺色文字 - 調亮 */
+  
+  /* 漸層色彩 */
+  --gradient-primary: linear-gradient(135deg, #1B3C53 0%, #234C6A 100%);
+  --gradient-accent: linear-gradient(135deg, #234C6A 0%, #456882 100%);
+  --gradient-light: linear-gradient(135deg, #456882 0%, #D2C1B6 100%);
+  
+  /* 陰影和效果 */
+  --shadow-soft: 0 4px 20px rgba(27, 60, 83, 0.15);
+  --shadow-medium: 0 8px 30px rgba(27, 60, 83, 0.2);
+  --shadow-strong: 0 12px 40px rgba(27, 60, 83, 0.25);
+  
+  /* 字體系統 */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -20,6 +41,9 @@ body {
   padding: 0;
   background: var(--color-bg-main);
   color: var(--color-text-main);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -43,17 +67,17 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
-    radial-gradient(circle at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
-    radial-gradient(circle at 40% 80%, rgba(67, 56, 202, 0.08) 0%, transparent 70%),
-    radial-gradient(circle at 70% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
-  filter: blur(60px);
+    radial-gradient(circle at 20% 20%, rgba(27, 60, 83, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 80% 30%, rgba(35, 76, 106, 0.12) 0%, transparent 70%),
+    radial-gradient(circle at 40% 80%, rgba(69, 104, 130, 0.1) 0%, transparent 70%),
+    radial-gradient(circle at 70% 60%, rgba(210, 193, 182, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
   z-index: 0;
-  animation: orbFloat 20s ease-in-out infinite alternate;
+  animation: orbFloat 25s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* Neon Lines */
+/* Subtle Grid Lines */
 .app::after {
   content: '';
   position: fixed;
@@ -62,10 +86,10 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(45deg, transparent 45%, rgba(99, 102, 241, 0.03) 50%, transparent 55%),
-    linear-gradient(-45deg, transparent 45%, rgba(139, 92, 246, 0.03) 50%, transparent 55%);
-  background-size: 300% 300%;
-  animation: neonLines 15s ease infinite;
+    linear-gradient(45deg, transparent 45%, rgba(27, 60, 83, 0.02) 50%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, rgba(35, 76, 106, 0.02) 50%, transparent 55%);
+  background-size: 400% 400%;
+  animation: gridLines 20s ease infinite;
   z-index: 0;
   pointer-events: none;
 }
@@ -88,17 +112,38 @@ main {
 
 section {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 0;
+  padding: 4rem 0 3rem;
   background: var(--color-bg-main);
   margin: 0;
   border: none;
   box-shadow: none;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease-out forwards;
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section entrance animations with staggered delays */
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
 
 #home {
   padding-top: 60px;
@@ -134,7 +179,7 @@ section {
   }
 }
 
-@keyframes neonLines {
+@keyframes gridLines {
   0% {
     background-position: 0% 50%;
   }
@@ -152,8 +197,8 @@ section {
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
 }
 
 /* Section Headers */
@@ -164,16 +209,19 @@ section {
 }
 
 .section-header h2 {
-  font-size: 2.5rem;
-  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-text-main);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   position: relative;
   display: inline-block;
-  margin-bottom: 0;
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
+  margin-bottom: 1rem;
+  background: var(--gradient-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-header h2::after {
@@ -181,12 +229,70 @@ section {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+  
+  section {
+    padding: 6rem 0 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .glass-effect {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
+  
   section {
-    padding: 3rem 0;
+    padding: 4rem 0 3rem;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .app::before {
+    filter: blur(40px);
+  }
+  
+  .app::after {
+    background-size: 200% 200%;
+  }
+}
+
+/* Enhanced card animations */
+.skill-showcase,
+.project-showcase,
+.timeline-content,
+.summary-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.skill-showcase:nth-child(1) { animation-delay: 0.1s; }
+.skill-showcase:nth-child(2) { animation-delay: 0.2s; }
+.skill-showcase:nth-child(3) { animation-delay: 0.3s; }
+.skill-showcase:nth-child(4) { animation-delay: 0.4s; }
+
+.project-showcase:nth-child(1) { animation-delay: 0.1s; }
+.project-showcase:nth-child(2) { animation-delay: 0.2s; }
+.project-showcase:nth-child(3) { animation-delay: 0.3s; }
+.project-showcase:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 } 

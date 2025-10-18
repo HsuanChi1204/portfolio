@@ -1,53 +1,124 @@
 import React from 'react';
 import '../styles/Timeline.css';
 
-interface TimelineItem {
+interface EducationItem {
   year: string;
-  title: string;
+  degree: string;
+  school: string;
+  coursework: string;
+  logo: string;
+}
+
+interface ExperienceItem {
+  year: string;
+  position: string;
   company: string;
-  description: string;
+  description: string[];
+  logo: string;
 }
 
 const Timeline: React.FC = () => {
-  const timelineItems: TimelineItem[] = [
+  const educationItems: EducationItem[] = [
     {
       year: '2025 - 2026',
-      title: 'Master of Engineering in Computer Science and Applications',
-      company: 'Virginia Tech',
-      description: 'Focus on Software Development and Machine Learning'
+      degree: 'Master of Engineering in Computer Science and Applications',
+      school: 'Virginia Tech',
+      coursework: 'Software Development, Machine Learning, Data Structures, Algorithms',
+      logo: '/src/assets/VT_logo.png'
+    }
+    // {
+    //   year: '2020 - 2024',
+    //   degree: 'Bachelor of Science in Computer Science and Information Engineering',
+    //   school: 'National Cheng Kung University',
+    //   coursework: 'Software Engineering, Web Development, Database Systems, Operating Systems',
+    //   logo: '/src/assets/ncku-logo1.jpg'
+    // }
+  ];
+
+  const experienceItems: ExperienceItem[] = [
+    {
+      year: '05/2025 - Present',
+      position: 'Software Engineer',
+      company: 'Kick Your Ads',
+      description: [
+        'Developing a full-stack LLM web application to detect scam emails and clean Gmail ads',
+        'Using React, TypeScript, Node.js, AWS, FastAPI, and OpenAI',
+        'Achieved 94% top-3 retrieval accuracy with GPT-4, Voyage Reranker, and PineconeDB',
+        'Handled 200K+ req/min at 300ms latency with Kubernetes and Redis'
+      ],
+      logo: '/src/assets/kick_your_ads.jpeg'
     },
     {
-      year: '2020 - 2024',
-      title: 'Bachelor of Science in Computer Science and Information Engineering',
-      company: 'National Cheng Kung University',
-      description: 'Major in Software Engineering and Web Development'
+      year: '06/2025 - 08/2025',
+      position: 'Software Engineer Intern',
+      company: 'MediaTek',
+      description: [
+        'Engineered a Full-stack Gen-AI Application with React, Python, FastAPIs, AstraDB, and GPT-4',
+        'Built a RAG-based chatbot achieving 96% top-3 retrieval accuracy (MRR@3)',
+        'Enabled 83% faster analysis and visualization of 1M+ records by building end-to-end ETL pipelines',
+        'Developed 10+ automation pipelines with Python, FastAPI, and UiPath, reducing processing time by 97%'
+      ],
+      logo: '/src/assets/MediaTek_Master-logo.png'
     },
     {
-      year: '2023 - 2024',
-      title: 'Software Engineer Intern',
+      year: '07/2020 - 10/2023',
+      position: 'Software Developer & Product Manager',
       company: 'Bank Sinopac',
-      description: 'Developed and maintained banking systems, focusing on front-end development and user experience'
+      description: [
+        'Built a Full-stack Gen-AI web for competitive analysis with React, TypeScript, Python, Java and AWS',
+        'Saved 5 hours of manual work per task by automating data workflows with Python, REST APIs, UiPath, and VBA',
+        'Analyzed 150K+ records via MSSQL and developed a real-time Power BI dashboard for operational monitoring',
+        'Achieved 70% conversion boost & $13M+ in loan approvals by leading an AI product recommendation system'
+      ],
+      logo: '/src/assets/sinopacLogo.jpg'
     }
   ];
 
   return (
     <div className="timeline-container">
-      <div className="section-header">
-        <h2>Timeline</h2>
-      </div>
-      <div className="timeline-wrapper">
-        <div className="timeline-line"></div>
-        <div className="timeline-items">
-          {timelineItems.map((item, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-content">
-                <div className="timeline-header">
-                  <h3>{item.year}</h3>
-                  <h4>{item.title}</h4>
-                  <p className="company">{item.company}</p>
-                </div>
-                <p className="description">{item.description}</p>
+      {/* Education Section */}
+      <div className="education-section">
+            <div className="section-header">
+              <h2>Education</h2>
+            </div>
+        <div className="education-grid">
+          {educationItems.map((item, index) => (
+            <div key={index} className="education-card">
+              <div className="education-logo">
+                <img src={item.logo} alt={`${item.school} logo`} />
               </div>
+              <div className="education-details">
+                <div className="education-year">{item.year}</div>
+                <div className="education-degree">{item.degree}</div>
+                <div className="education-school">{item.school}</div>
+                <div className="education-coursework">{item.coursework}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Experience Section */}
+      <div className="experience-section">
+            <div className="section-header">
+              <h2>Professional Experience</h2>
+            </div>
+        <div className="experience-grid">
+          {experienceItems.map((item, index) => (
+            <div key={index} className="experience-card">
+              <div className="experience-logo">
+                <img src={item.logo} alt={`${item.company} logo`} />
+              </div>
+                <div className="experience-details">
+                  <div className="experience-year">{item.year}</div>
+                  <div className="experience-position">{item.position}</div>
+                  <div className="experience-company">{item.company}</div>
+                  <ul className="experience-description">
+                    {item.description.map((desc, index) => (
+                      <li key={index}>{desc}</li>
+                    ))}
+                  </ul>
+                </div>
             </div>
           ))}
         </div>

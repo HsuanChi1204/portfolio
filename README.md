@@ -1,81 +1,80 @@
-# Kevin's Portfolio
+# Portfolio Website - Development Progress
 
-A personal portfolio website built with React + TypeScript + Vite, showcasing my professional skills, project experiences, and personal information.
+## 🎨 Design System
+- **Color Palette**: #1B3C53 (深藍綠), #234C6A (中等藍綠), #456882 (淺藍綠), #D2C1B6 (淺米色)
+- **Typography**: Inter (body) + Poppins (headings)
+- **Theme**: Professional, modern, slightly futuristic
+- **Background**: Dark theme with glass effects and subtle animations
 
-## Features
-
-- 🎨 Modern UI Design
-- 📱 Responsive Design for All Devices
-- ⚡ Fast Development with Vite
-- 🔥 TypeScript for Code Quality
-- 🎭 3D Model Display
-- 🌈 Gradient Background and Animations
-
-## Tech Stack
-
-- React 18
-- TypeScript
-- Vite
-- Three.js (3D Models)
-- CSS3 (Animations and Effects)
-
-## Project Structure
-
+## 📁 Project Structure
 ```
-portfolio/
-├── public/          # Static Assets
-├── src/
-│   ├── assets/      # Images and Resources
-│   ├── components/  # React Components
-│   ├── styles/      # CSS Styles
-│   ├── hooks/       # Custom Hooks
-│   └── types/       # TypeScript Type Definitions
-├── package.json
-└── vite.config.ts
+src/
+├── components/
+│   ├── Welcome.tsx          # Hero section with large title
+│   ├── Skills.tsx           # Technical expertise with charts
+│   ├── Projects.tsx         # Featured projects showcase
+│   ├── Timeline.tsx         # Education & experience
+│   ├── Contact.tsx          # Contact form
+│   └── Navbar.tsx           # Navigation
+├── styles/
+│   ├── App.css             # Main CSS variables & global styles
+│   ├── Welcome.css          # Hero section styles
+│   ├── Skills.css           # Skills section with animations
+│   ├── Projects.css         # Projects showcase styles
+│   ├── Timeline.css         # Timeline styles
+│   ├── Contact.css          # Contact form styles
+│   └── Navbar.css           # Navigation styles
+└── assets/
+    └── profile.png          # Profile image
 ```
 
-## Main Components
+## ✨ Current Features
+### Hero Section
+- Large responsive title with gradient text
+- Personal info cards (location, skills, availability)
+- Modern button styles with icons
+- Profile image with stats overlay
 
-- `Home`: Welcome Section
-- `AboutMe`: Personal Introduction
-- `Skills`: Skills Showcase
-- `Projects`: Project Portfolio
-- `Timeline`: Education and Work Experience
-- `Contact`: Contact Information
+### Skills Section
+- Circular progress charts for proficiency
+- Technology tags with hover effects
+- Animated progress bars
+- Summary cards with icons
 
-## Installation & Running
+### Projects Section
+- Visual mockups with charts
+- Performance metrics display
+- Feature descriptions
+- Technology tags
 
-1. Clone the repository
-```bash
-git clone https://github.com/HsuanChi1204/portfolio.git
-```
+### Design Elements
+- Glass morphism effects
+- Smooth animations and transitions
+- Responsive grid layouts
+- Modern color scheme
+- Professional typography
 
-2. Install dependencies
-```bash
-npm install
-```
+## 🚀 Development Server
+- **URL**: http://localhost:3000
+- **Status**: Running with HMR (Hot Module Replacement)
+- **Framework**: React + TypeScript + Vite
 
-3. Run development server
-```bash
-npm run dev
-```
+## 📝 TODO Items
+1. ✅ Update Hero section with large title design
+2. ✅ Redesign Projects section with visual mockups
+3. ✅ Enhance Skills section with progress charts
+4. ✅ Implement modern button styles
+5. ✅ Add animations and interactions
+6. 🔄 Update content based on resume
+7. 🔄 Integrate GitHub projects data
+8. 🔄 Adjust color brightness
+9. 🔄 Add section animations
+10. 🔄 Fix hero section layout issues
 
-4. Build for production
-```bash
-npm run build
-```
-
-## Deployment
-
-The project can be deployed on any static website hosting platform, such as:
-- Vercel
-- Netlify
-- GitHub Pages
-
-## Contributing
-
-Feel free to open issues and pull requests! If you find any bugs or have suggestions for improvements, please let me know.
-
-## License
-
-MIT License
+## 🎯 Next Steps
+- Update content with real resume data
+- Integrate GitHub API for projects
+- Brighten color scheme for better readability
+- Add entrance animations for sections
+- Fix hero section name truncation
+- Remove stats overlay from profile image

@@ -9,8 +9,10 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       const homeSection = document.getElementById('home');
       if (homeSection) {
-        const homeSectionBottom = homeSection.getBoundingClientRect().bottom;
-        setIsScrolled(homeSectionBottom <= 60); // 60px is navbar height
+        const homeSectionHeight = homeSection.getBoundingClientRect().height;
+        const homeSectionTop = homeSection.getBoundingClientRect().top;
+        // Show background when hero section is halfway scrolled
+        setIsScrolled(homeSectionTop <= -homeSectionHeight / 2);
       }
     };
 
@@ -34,10 +36,9 @@ const Navbar: React.FC = () => {
       
       <div className={`navbar-right ${isMenuOpen ? 'active' : ''}`}>
         <a href="#home">Home</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#education">Education & Experience</a>
+        <a href="#portfolio">Skills & Projects</a>
+        <a href="#contact">Get In Touch</a>
       </div>
     </nav>
   );
