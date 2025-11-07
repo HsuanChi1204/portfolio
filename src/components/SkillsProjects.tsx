@@ -1,5 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import '../styles/SkillsProjects.css';
+import programmingIcon from '../assets/programming-icon.png';
+import cloudIcon from '../assets/cloud-icon.png';
+import toolsIcon from '../assets/tools-icon.png';
+import databaseIcon from '../assets/database-icon.png';
+import redLightGameImage from '../assets/red-light-game.png';
+import netflixCloneImage from '../assets/netflix-clone.png';
+import netflixCloneAltImage from '../assets/netflix-clone1.png';
+import blockchainProjectImage from '../assets/blockchain-project.png';
+import leetcodeTrackerImage from '../assets/leetcode-tracker.png';
+import leetcodeTrackerAlt1 from '../assets/leetcode-tracker1.png';
+import leetcodeTrackerAlt2 from '../assets/leetcode-tracker2.png';
 
 interface SkillCategory {
   title: string;
@@ -84,28 +95,28 @@ const SkillsProjects: React.FC = () => {
       title: 'Programming',
       description: 'Core programming languages and frameworks for full-stack development.',
       icon: '💻',
-      iconImage: '/src/assets/programming-icon.png',
+      iconImage: programmingIcon,
       technologies: ['Python', 'Java', 'C', 'React', 'TypeScript', 'JavaScript', 'Express.js', 'Node.js']
     },
     {
       title: 'Cloud Platforms',
       description: 'Cloud infrastructure and services for scalable application deployment.',
       icon: '☁️',
-      iconImage: '/src/assets/cloud-icon.png',
+      iconImage: cloudIcon,
       technologies: ['AWS (DynamoDB, API Gateway, S3, CloudFront, CloudWatch, Lambda, IAM, MSK)', 'Firebase', 'GCP']
     },
     {
       title: 'Tools & DevOps',
       description: 'Development tools, testing frameworks, and deployment technologies.',
       icon: '🔧',
-      iconImage: '/src/assets/tools-icon.png',
+      iconImage: toolsIcon,
       technologies: ['Docker', 'Kubernetes', 'Kafka', 'UiPath', 'OAuth', 'PyTest', 'Jenkins', 'Git', 'Linux', 'Bash Script', 'Jest', 'Cypress']
     },
     {
       title: 'Database & Storage',
       description: 'Database management and data storage solutions for various use cases.',
       icon: '🗄️',
-      iconImage: '/src/assets/database-icon.png',
+      iconImage: databaseIcon,
       technologies: ['Relational Databases (MSSQL, MySQL)', 'NoSQL (MongoDB, DynamoDB)', 'Redis', 'IPFS distributed Storage']
     }
   ];
@@ -114,7 +125,7 @@ const SkillsProjects: React.FC = () => {
     {
       title: 'Red Light Game',
       description: 'Amazon Game Builder Hackathon 2025 - Interactive game development project showcasing creative problem-solving and game design skills.',
-      image: '/src/assets/red-light-game.png',
+      image: redLightGameImage,
       tags: ['JavaScript', 'React', 'Three.js', 'AWS S3, CloudFront', 'DynamoDB', 'Game Development', 'Hackathon', 'Interactive'],
       link: 'https://github.com/HsuanChi1204/Red-Light-Game',
       stats: {
@@ -123,17 +134,17 @@ const SkillsProjects: React.FC = () => {
         uptime: '99.5%'
       },
       // 方式 1: 使用字串陣列（簡單方式，順序就是輪播順序）
-      images: ['/src/assets/red-light-game.png']
+      images: [redLightGameImage]
       // 方式 2: 使用物件陣列（可設定圖片名稱，順序就是陣列順序）
       // images: [
-      //   { url: '/src/assets/red-light-game.png', name: 'Game Homepage' },
-      //   { url: '/src/assets/redlight.png', name: 'Gameplay Screenshot' }
+      //   { url: redLightGameImage, name: 'Game Homepage' },
+      //   { url: redLightGameImage, name: 'Gameplay Screenshot' }
       // ]
     },
     {
       title: 'Netflix Clone',
       description: 'Full-stack Netflix clone with modern UI/UX, featuring movie browsing, user authentication, and responsive design.',
-      image: '/src/assets/netflix-clone.png',
+      image: netflixCloneImage,
       tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'CSS3', 'API Integration', 'Jest', 'Cypress'],
       link: 'https://github.com/HsuanChi1204/Netflix-clone',
       stats: {
@@ -141,12 +152,12 @@ const SkillsProjects: React.FC = () => {
         users: '1.2k+',
         uptime: '99.9%'
       },
-      images: ['/src/assets/netflix-clone.png', '/src/assets/netflix-clone1.png']
+      images: [netflixCloneImage, netflixCloneAltImage]
     },
     {
       title: 'Distributed Storage and Blockchain',
       description: 'Decentralized application exploring smart contracts, cryptocurrency integration, and blockchain technology.',
-      image: '/src/assets/blockchain-project.png',
+      image: blockchainProjectImage,
       tags: ['Solidity', 'Web3.js', 'Ethereum', 'Smart Contracts', 'Polygon zkEVM', 'Ed25519 cryptography', 'IPFS distributed storage'],
       link: 'https://github.com/HsuanChi1204/blockchainProject',
       stats: {
@@ -158,7 +169,7 @@ const SkillsProjects: React.FC = () => {
     {
       title: 'LeetCode Tracker',
       description: 'Personal coding progress tracker with problem categorization, difficulty levels, and performance analytics.',
-      image: '/src/assets/leetcode-tracker.png',
+      image: leetcodeTrackerImage,
       tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Data Analysis', 'Web Scraping', 'Dashboard'],
       link: 'https://github.com/HsuanChi1204/Leetcode-tracker',
       stats: {
@@ -167,7 +178,7 @@ const SkillsProjects: React.FC = () => {
         uptime: '99.8%'
       },
       // 範例：使用物件格式設定輪播圖片順序和名稱
-      images: ['/src/assets/leetcode-tracker.png', '/src/assets/leetcode-tracker1.png', '/src/assets/leetcode-tracker2.png']
+      images: [leetcodeTrackerImage, leetcodeTrackerAlt1, leetcodeTrackerAlt2]
     }
   ];
 

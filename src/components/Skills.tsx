@@ -1,5 +1,9 @@
 import React from 'react';
 import '../styles/Skills.css';
+import programmingIcon from '../assets/programming-icon.png';
+import cloudIcon from '../assets/cloud-icon.png';
+import toolsIcon from '../assets/tools-icon.png';
+import databaseIcon from '../assets/database-icon.png';
 
 interface SkillCategory {
   title: string;
@@ -15,28 +19,28 @@ const Skills: React.FC = () => {
       title: 'Programming',
       description: 'Core programming languages and frameworks for full-stack development.',
       icon: '💻',
-      iconImage: '/src/assets/programming-icon.png',
+      iconImage: programmingIcon,
       technologies: ['Python', 'Java', 'C', 'React', 'TypeScript', 'JavaScript', 'Express.js', 'Node.js']
     },
     {
       title: 'Cloud Platforms',
       description: 'Cloud infrastructure and services for scalable application deployment.',
       icon: '☁️',
-      iconImage: '/src/assets/cloud-icon.png',
+      iconImage: cloudIcon,
       technologies: ['AWS (DynamoDB, API Gateway, S3, CloudFront, CloudWatch, Lambda, IAM, MSK)', 'Firebase', 'GCP']
     },
     {
       title: 'Tools & DevOps',
       description: 'Development tools, testing frameworks, and deployment technologies.',
       icon: '🔧',
-      iconImage: '/src/assets/tools-icon.png',
+      iconImage: toolsIcon,
       technologies: ['Docker', 'Kubernetes', 'Kafka', 'UiPath', 'OAuth', 'PyTest', 'Jenkins', 'Git', 'Linux', 'Bash Script', 'Jest', 'Cypress']
     },
     {
       title: 'Database & Storage',
       description: 'Database management and data storage solutions for various use cases.',
       icon: '🗄️',
-      iconImage: '/src/assets/database-icon.png',
+      iconImage: databaseIcon,
       technologies: ['Relational Databases (MSSQL, MySQL)', 'NoSQL (MongoDB, DynamoDB)', 'Redis', 'IPFS distributed Storage']
     }
   ];

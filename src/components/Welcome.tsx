@@ -1,6 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Welcome.css';
+import emailIcon from '../assets/email-icon.png';
+import linkedinIcon from '../assets/linkedin-icon.png';
+import githubIcon from '../assets/github-icon.png';
+import resumeIcon from '../assets/resume-icon.png';
+import resumePdf from '../assets/resume.pdf';
+import profileImage from '../assets/profile-no-bg.png';
 
 const Welcome: React.FC = () => {
   // 滾動 parallax
@@ -42,22 +48,22 @@ const Welcome: React.FC = () => {
           
           <div className="social-icons">
             <a href="mailto:kevinchangbeta@gmail.com" className="social-icon group">
-            <img src="/src/assets/email-icon.png" alt="Email" />
+            <img src={emailIcon} alt="Email" />
               <span className="social-tooltip">Email</span>
             </a>
             
             <a href="https://linkedin.com/in/hsuanchichang/" className="social-icon group" target="_blank" rel="noopener noreferrer">
-              <img src="/src/assets/linkedin-icon.png" alt="LinkedIn" />
+              <img src={linkedinIcon} alt="LinkedIn" />
               <span className="social-tooltip">LinkedIn</span>
             </a>
             
             <a href="https://github.com/HsuanChi1204" className="social-icon group" target="_blank" rel="noopener noreferrer">
-              <img src="/src/assets/github-icon.png" alt="GitHub" />
+              <img src={githubIcon} alt="GitHub" />
               <span className="social-tooltip">GitHub</span>
             </a>
             
-            <a href="/src/assets/resume.pdf" className="social-icon group" target="_blank" rel="noopener noreferrer">
-              <img src="/src/assets/resume-icon.png" alt="Resume" />
+            <a href={resumePdf} className="social-icon group" target="_blank" rel="noopener noreferrer">
+              <img src={resumeIcon} alt="Resume" />
               <span className="social-tooltip">Resume</span>
             </a>
           </div>
@@ -116,7 +122,7 @@ const Welcome: React.FC = () => {
       <motion.div className="welcome-image" style={{ y: parallaxY }}>
         <div className="image-container">
           <img 
-            src="/src/assets/profile-no-bg.png" 
+            src={profileImage} 
             alt="Kevin Chang"
             className="profile-image"
           />

@@ -1,5 +1,9 @@
 import React from 'react';
 import '../styles/Timeline.css';
+import vtLogo from '../assets/VT_logo.png';
+import kickYourAdsLogo from '../assets/kick_your_ads.jpeg';
+import mediatekLogo from '../assets/mediatek_logo.jpeg';
+import sinopacLogo from '../assets/sinopacLogo.jpg';
 
 interface EducationItem {
   year: string;
@@ -24,14 +28,14 @@ const Timeline: React.FC = () => {
       degree: 'Master of Engineering in Computer Science and Applications',
       school: 'Virginia Tech',
       coursework: 'Full-stack Development, Software Engineering, Database Systems, Algorithms, Blockchain, Software Design, AI tools for software development, Database Management',
-      logo: '/src/assets/VT_logo.png'
+      logo: vtLogo
     }
     // {
     //   year: '2020 - 2024',
     //   degree: 'Bachelor of Science in Computer Science and Information Engineering',
     //   school: 'National Cheng Kung University',
     //   coursework: 'Software Engineering, Web Development, Database Systems, Operating Systems',
-    //   logo: '/src/assets/ncku-logo1.jpg'
+    //   logo: nckuLogo
     // }
   ];
 
@@ -46,7 +50,7 @@ const Timeline: React.FC = () => {
         'Achieved 94% top-3 retrieval accuracy with GPT-4, Voyage Reranker, and PineconeDB',
         'Handled 200K+ req/min at 300ms latency with Kubernetes and Redis'
       ],
-      logo: '/src/assets/kick_your_ads.jpeg'
+      logo: kickYourAdsLogo
     },
     {
       year: '06/2025 - 08/2025',
@@ -58,7 +62,7 @@ const Timeline: React.FC = () => {
         'Enabled 83% faster analysis and visualization of 1M+ records by building end-to-end ETL pipelines',
         'Developed 10+ automation pipelines with Python, FastAPI, and UiPath, reducing processing time by 97%'
       ],
-      logo: '/src/assets/mediatek_logo.jpeg'
+      logo: mediatekLogo
     },
     {
       year: '07/2020 - 10/2023',
@@ -70,7 +74,7 @@ const Timeline: React.FC = () => {
         'Analyzed 150K+ records via MSSQL and developed a real-time Power BI dashboard for operational monitoring',
         'Achieved 70% conversion boost & $13M+ in loan approvals by leading an AI product recommendation system'
       ],
-      logo: '/src/assets/sinopacLogo.jpg'
+      logo: sinopacLogo
     }
   ];
 

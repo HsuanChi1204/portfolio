@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/Projects.css';
+import redLightGameImage from '../assets/red-light-game.png';
+import netflixCloneImage from '../assets/netflix-clone.png';
 
 interface Project {
   title: string;
@@ -19,7 +21,7 @@ const Projects: React.FC = () => {
     {
       title: 'Red Light Game',
       description: 'Amazon Game Builder Hackathon 2025 - Interactive game development project showcasing creative problem-solving and game design skills.',
-      image: '/src/assets/redlight.png',
+      image: redLightGameImage,
       tags: ['JavaScript', 'Game Development', 'Hackathon', 'Interactive'],
       link: 'https://github.com/HsuanChi1204/Red-Light-Game',
       stats: {
@@ -31,7 +33,7 @@ const Projects: React.FC = () => {
     {
       title: 'Netflix Clone',
       description: 'React-based Netflix clone with modern UI/UX design, featuring responsive design and smooth user interactions.',
-      image: "/src/assets/redlight.png",
+      image: netflixCloneImage,
       tags: ['React', 'JavaScript', 'UI/UX', 'Responsive'],
       link: 'https://github.com/HsuanChi1204/Netflix-clone',
       stats: {
