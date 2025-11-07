@@ -26,12 +26,27 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
+    const to = 'kevinchangbeta@gmail.com';
+    const subject = formData.subject || 'Portfolio Contact';
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      '',
+      formData.message
+    ];
+    const body = bodyLines.join('\n');
+
+    const mailtoUrl = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // 以 mailto 開啟使用者預設郵件用戶端
+    window.location.href = mailtoUrl;
+
+    // 視為送出完成（轉向後仍給予 UI 回饋）
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 2000);
+    }, 300);
   };
 
   const generateCodeOutput = () => {

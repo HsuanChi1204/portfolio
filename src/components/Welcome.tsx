@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 import '../styles/Welcome.css';
 
 const Welcome: React.FC = () => {
+  // 滾動 parallax
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY || 0);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const parallaxY = useMemo(() => {
+    const intensity = 0.08; // 調整視覺位移強度
+    return -scrollY * intensity;
+  }, [scrollY]);
+
   return (
     <div className="welcome-container">
-      <div className="welcome-content">
+      <motion.div className="welcome-content" style={{ y: parallaxY }}>
         <h1 className="hero-title">
           <span className="hero-name">Kevin Chang</span>
         </h1>
@@ -28,10 +42,7 @@ const Welcome: React.FC = () => {
           
           <div className="social-icons">
             <a href="mailto:kevinchangbeta@gmail.com" className="social-icon group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              </svg>
+            <img src="/src/assets/email-icon.png" alt="Email" />
               <span className="social-tooltip">Email</span>
             </a>
             
@@ -52,18 +63,25 @@ const Welcome: React.FC = () => {
           </div>
         </div>
 
-        <div className="hero-info-grid">
-          <div className="info-card">
+        <motion.div className="hero-info-grid"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1, transition: { staggerChildren: 0.15 } }
+          }}
+        >
+          <motion.div className="info-card" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <div>
-              <p className="info-title">Based in Virginia, USA</p>
-              <p className="info-subtitle">Virginia Tech Student</p>
+            <div className="info-text">
+              <p className="info-title">Arlington, VA, USA</p>
             </div>
-          </div>
-          <div className="info-card">
+          </motion.div>
+          <motion.div className="info-card" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 20v2"></path>
               <path d="M12 2v2"></path>
@@ -80,33 +98,31 @@ const Welcome: React.FC = () => {
               <rect x="4" y="4" width="16" height="16" rx="2"></rect>
               <rect x="8" y="8" width="8" height="8" rx="1"></rect>
             </svg>
-            <div>
+            <div className="info-text">
               <p className="info-title">Full Stack Development</p>
-              <p className="info-subtitle">React, JavaScript, Python</p>
             </div>
-          </div>
-          <div className="info-card">
+          </motion.div>
+          <motion.div className="info-card" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 6 9 17l-5-5"></path>
             </svg>
-            <div>
-              <p className="info-title">Graduate Student</p>
-              <p className="info-subtitle">M.Eng Computer Science</p>
+            <div className="info-text">
+              <p className="info-title">US Citizen</p>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
       
-        <div className="welcome-image">
-          <div className="image-container">
-            <img 
-              src="/src/assets/profile-no-bg.png" 
-              alt="Kevin Chang"
-              className="profile-image"
-            />
-            <div className="image-overlay"></div>
-          </div>
+      <motion.div className="welcome-image" style={{ y: parallaxY }}>
+        <div className="image-container">
+          <img 
+            src="/src/assets/profile-no-bg.png" 
+            alt="Kevin Chang"
+            className="profile-image"
+          />
+          <div className="image-overlay"></div>
         </div>
+      </motion.div>
 
     </div>
   );

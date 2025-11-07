@@ -23,7 +23,7 @@ const Timeline: React.FC = () => {
       year: '2025 - 2026',
       degree: 'Master of Engineering in Computer Science and Applications',
       school: 'Virginia Tech',
-      coursework: 'Software Development, Machine Learning, Data Structures, Algorithms',
+      coursework: 'Full-stack Development, Software Engineering, Database Systems, Algorithms, Blockchain, Software Design, AI tools for software development, Database Management',
       logo: '/src/assets/VT_logo.png'
     }
     // {
@@ -58,7 +58,7 @@ const Timeline: React.FC = () => {
         'Enabled 83% faster analysis and visualization of 1M+ records by building end-to-end ETL pipelines',
         'Developed 10+ automation pipelines with Python, FastAPI, and UiPath, reducing processing time by 97%'
       ],
-      logo: '/src/assets/MediaTek_Master-logo.png'
+      logo: '/src/assets/mediatek_logo.jpeg'
     },
     {
       year: '07/2020 - 10/2023',
@@ -73,6 +73,28 @@ const Timeline: React.FC = () => {
       logo: '/src/assets/sinopacLogo.jpg'
     }
   ];
+
+  const keywords = [
+    'React', 'TypeScript', 'JavaScript', 'Python', 'Java', 'AWS', 'FastAPI', 'OpenAI',
+    'GPT-4', 'Kubernetes', 'Redis', 'PineconeDB', 'AstraDB', 'UiPath', 'MSSQL',
+    'Power BI', 'Node.js', 'RAG', 'ETL', 'REST', 'VBA'
+  ];
+
+  const highlightKeywords = (text: string) => {
+    const pattern = new RegExp(`(${keywords.map(k => k.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'gi');
+    const parts = text.split(pattern);
+    return (
+      <>
+        {parts.map((part, i) =>
+          keywords.some(k => k.toLowerCase() === part.toLowerCase()) ? (
+            <span key={i} className="exp-hl">{part}</span>
+          ) : (
+            <span key={i}>{part}</span>
+          )
+        )}
+      </>
+    );
+  };
 
   return (
     <div className="timeline-container">
@@ -115,7 +137,7 @@ const Timeline: React.FC = () => {
                   <div className="experience-company">{item.company}</div>
                   <ul className="experience-description">
                     {item.description.map((desc, index) => (
-                      <li key={index}>{desc}</li>
+                      <li key={index}>{highlightKeywords(desc)}</li>
                     ))}
                   </ul>
                 </div>

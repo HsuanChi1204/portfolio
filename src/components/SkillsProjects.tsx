@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import '../styles/SkillsProjects.css';
 
 interface SkillCategory {
@@ -7,6 +7,11 @@ interface SkillCategory {
   icon: string;
   iconImage?: string;
   technologies: string[];
+}
+
+interface ProjectImage {
+  url: string;
+  name?: string; // 圖片名稱/標題（選填）
 }
 
 interface Project {
@@ -20,10 +25,59 @@ interface Project {
     users: string;
     uptime: string;
   };
+  images?: (string | ProjectImage)[]; // 多張圖片輪播，可以是字串或物件（包含名稱）
 }
 
 const SkillsProjects: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'projects' | 'skills'>('projects');
+  
+  // 簡易輪播元件（內嵌）
+  const Carousel: React.FC<{ images?: (string | ProjectImage)[]; fallback: string }> = ({ images, fallback }) => {
+    // 將 images 轉換為統一格式
+    const normalizedImages = useMemo(() => {
+      if (!images || images.length === 0) return [{ url: fallback, name: undefined }];
+      return images.map(img => 
+        typeof img === 'string' 
+          ? { url: img, name: undefined } 
+          : { url: img.url, name: img.name }
+      );
+    }, [images, fallback]);
+    
+    const [idx, setIdx] = useState(0);
+    const next = () => setIdx((i) => (i + 1) % normalizedImages.length);
+    const prev = () => setIdx((i) => (i - 1 + normalizedImages.length) % normalizedImages.length);
+    const currentImage = normalizedImages[idx];
+    
+    return (
+      <div className="carousel">
+        <img 
+          src={currentImage.url} 
+          alt={currentImage.name || `slide-${idx + 1}`} 
+          className="project-image" 
+          title={currentImage.name}
+        />
+        {normalizedImages.length > 1 && (
+          <div className="carousel-controls">
+            <button type="button" className="carousel-btn" onClick={prev} aria-label="Previous image">‹</button>
+            <div className="carousel-dots">
+              {normalizedImages.map((img, i) => (
+                <span 
+                  key={i} 
+                  className={`dot ${i === idx ? 'active' : ''}`} 
+                  onClick={() => setIdx(i)}
+                  title={img.name || `Image ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button type="button" className="carousel-btn" onClick={next} aria-label="Next image">›</button>
+          </div>
+        )}
+        {currentImage.name && (
+          <div className="carousel-image-name">{currentImage.name}</div>
+        )}
+      </div>
+    );
+  };
 
   const skillCategories: SkillCategory[] = [
     {
@@ -61,49 +115,59 @@ const SkillsProjects: React.FC = () => {
       title: 'Red Light Game',
       description: 'Amazon Game Builder Hackathon 2025 - Interactive game development project showcasing creative problem-solving and game design skills.',
       image: '/src/assets/red-light-game.png',
-      tags: ['JavaScript', 'Game Development', 'Hackathon', 'Interactive'],
+      tags: ['JavaScript', 'React', 'Three.js', 'AWS S3, CloudFront', 'DynamoDB', 'Game Development', 'Hackathon', 'Interactive'],
       link: 'https://github.com/HsuanChi1204/Red-Light-Game',
       stats: {
         performance: '1.2s',
         users: '500+',
         uptime: '99.5%'
-      }
+      },
+      // 方式 1: 使用字串陣列（簡單方式，順序就是輪播順序）
+      images: ['/src/assets/red-light-game.png']
+      // 方式 2: 使用物件陣列（可設定圖片名稱，順序就是陣列順序）
+      // images: [
+      //   { url: '/src/assets/red-light-game.png', name: 'Game Homepage' },
+      //   { url: '/src/assets/redlight.png', name: 'Gameplay Screenshot' }
+      // ]
     },
     {
       title: 'Netflix Clone',
       description: 'Full-stack Netflix clone with modern UI/UX, featuring movie browsing, user authentication, and responsive design.',
       image: '/src/assets/netflix-clone.png',
-      tags: ['React', 'TypeScript', 'CSS3', 'API Integration'],
+      tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'CSS3', 'API Integration', 'Jest', 'Cypress'],
       link: 'https://github.com/HsuanChi1204/Netflix-clone',
       stats: {
         performance: '0.8s',
         users: '1.2k+',
         uptime: '99.9%'
-      }
+      },
+      images: ['/src/assets/netflix-clone.png', '/src/assets/netflix-clone1.png']
     },
     {
-      title: 'LeetCode Tracker',
-      description: 'Personal coding progress tracker with problem categorization, difficulty levels, and performance analytics.',
-      image: '/src/assets/leetcode-tracker.png',
-      tags: ['Python', 'Data Analysis', 'Web Scraping', 'Dashboard'],
-      link: 'https://github.com/HsuanChi1204/Leetcode-tracker',
-      stats: {
-        performance: '0.5s',
-        users: '200+',
-        uptime: '99.8%'
-      }
-    },
-    {
-      title: 'Blockchain Project',
+      title: 'Distributed Storage and Blockchain',
       description: 'Decentralized application exploring smart contracts, cryptocurrency integration, and blockchain technology.',
       image: '/src/assets/blockchain-project.png',
-      tags: ['Solidity', 'Web3.js', 'Ethereum', 'Smart Contracts'],
+      tags: ['Solidity', 'Web3.js', 'Ethereum', 'Smart Contracts', 'Polygon zkEVM', 'Ed25519 cryptography', 'IPFS distributed storage'],
       link: 'https://github.com/HsuanChi1204/blockchainProject',
       stats: {
         performance: '2.3s',
         users: '100+',
         uptime: '99.7%'
       }
+    },
+    {
+      title: 'LeetCode Tracker',
+      description: 'Personal coding progress tracker with problem categorization, difficulty levels, and performance analytics.',
+      image: '/src/assets/leetcode-tracker.png',
+      tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Data Analysis', 'Web Scraping', 'Dashboard'],
+      link: 'https://github.com/HsuanChi1204/Leetcode-tracker',
+      stats: {
+        performance: '0.5s',
+        users: '200+',
+        uptime: '99.8%'
+      },
+      // 範例：使用物件格式設定輪播圖片順序和名稱
+      images: ['/src/assets/leetcode-tracker.png', '/src/assets/leetcode-tracker1.png', '/src/assets/leetcode-tracker2.png']
     }
   ];
 
@@ -151,11 +215,15 @@ const SkillsProjects: React.FC = () => {
                     </div>
                     <div className="mockup-content">
                       <div className="project-image-container">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="project-image"
-                        />
+                        {project.images && project.images.length > 1 ? (
+                          <Carousel images={project.images} fallback={project.image} />
+                        ) : (
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="project-image"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -174,17 +242,8 @@ const SkillsProjects: React.FC = () => {
                   </div>
                   
                   <p className="project-description">{project.description}</p>
-                  
-                  <div className="project-features">
-                    <div className="feature-item">
-                      <h4>Performance</h4>
-                      <p>Optimized for speed and efficiency</p>
-                    </div>
-                    <div className="feature-item">
-                      <h4>Scalability</h4>
-                      <p>Built to handle growing user base</p>
-                    </div>
-                  </div>
+
+                  {/* highlights removed as requested */}
                   
                   <div className="project-tags">
                     {project.tags.map((tag, i) => (
