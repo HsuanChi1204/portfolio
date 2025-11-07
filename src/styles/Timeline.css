@@ -483,42 +483,45 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 1.5rem;
     padding: 2rem;
+    align-items: flex-start;
   }
 
   .education-logo,
   .experience-logo {
-    width: 60px;
-    height: 60px;
-    align-self: center;
+    width: 80px;
+    height: 80px;
   }
 
   .education-logo img,
   .experience-logo img {
-    width: 45px;
-    height: 45px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .education-details,
   .experience-details {
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
   }
 
   .education-degree,
   .experience-position {
-    text-align: center;
+    text-align: left;
   }
 
   .education-school,
   .experience-company {
-    text-align: center;
+    text-align: left;
   }
 
   .education-coursework,
   .experience-description {
-    text-align: center;
+    text-align: left;
   }
 }
 

@@ -97,6 +97,18 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
+  .navbar-left {
+    gap: 0.5rem;
+  }
+
+  .navbar-left .name {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -114,7 +126,8 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     gap: 1rem;
+    align-items: flex-start;
   }
 } 

@@ -84,7 +84,10 @@ const Welcome: React.FC = () => {
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
             <div className="info-text">
-              <p className="info-title">Arlington, VA, USA</p>
+              <p className="info-title">
+                <span className="info-label-desktop">Arlington, VA, USA</span>
+                <span className="info-label-mobile">Arlington, VA</span>
+              </p>
             </div>
           </motion.div>
           <motion.div className="info-card" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
@@ -105,7 +108,10 @@ const Welcome: React.FC = () => {
               <rect x="8" y="8" width="8" height="8" rx="1"></rect>
             </svg>
             <div className="info-text">
-              <p className="info-title">Full Stack Development</p>
+              <p className="info-title">
+                <span className="info-label-desktop">Full Stack Development</span>
+                <span className="info-label-mobile">Full Stack</span>
+              </p>
             </div>
           </motion.div>
           <motion.div className="info-card" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
@@ -113,7 +119,10 @@ const Welcome: React.FC = () => {
               <path d="M20 6 9 17l-5-5"></path>
             </svg>
             <div className="info-text">
-              <p className="info-title">US Citizen</p>
+              <p className="info-title">
+                <span className="info-label-desktop">US Citizen</span>
+                <span className="info-label-mobile">US Citizen</span>
+              </p>
             </div>
           </motion.div>
         </motion.div>
